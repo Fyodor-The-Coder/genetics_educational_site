@@ -1,0 +1,6 @@
+<h1>Список всех терминов из словаря</h1>
+<ul>
+    {% for term in terms %}
+    <li> {{ term.term_ru}} ({{ term.term_definition }})</li>
+    {% endfor %}
+</ul>
