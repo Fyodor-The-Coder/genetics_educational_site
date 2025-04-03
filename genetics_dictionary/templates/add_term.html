@@ -1,5 +1,60 @@
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Добавить термин в словарь</button>
-</form>
+{% extends 'base_page.html' %}
+
+{% block title %}Добавление термина | GeneLab{% endblock %}
+
+{% block page-title %}Добавить новый термин{% endblock %}
+
+{% block page-content %}
+<div class="form-container">
+    <div class="modern-form-card">
+        <form method="post" class="neomorphic-form">
+            {% csrf_token %}
+
+            <!-- Поле для русского названия -->
+            <div class="form-group">
+                <div class="input-wrapper">
+                    <i class="icon fas fa-text-height"></i>
+                    {{ form.term_ru }}
+                    <label class="input-label">Русское название</label>
+                    <div class="underline"></div>
+                </div>
+                <span class="form-error">{{ form.term_ru.errors }}</span>
+            </div>
+
+            <!-- Поле для английского названия -->
+            <div class="form-group">
+                <div class="input-wrapper">
+                    <i class="icon fas fa-language"></i>
+                    {{ form.term_en }}
+                    <label class="input-label">Английское название</label>
+                    <div class="underline"></div>
+                </div>
+                <span class="form-error">{{ form.term_en.errors }}</span>
+            </div>
+
+            <!-- Поле для определения -->
+            <div class="form-group">
+                <div class="input-wrapper textarea-wrapper">
+                    <i class="icon fas fa-align-left"></i>
+                    {{ form.term_definition }}
+                    <label class="input-label">Определение термина</label>
+                    <div class="underline"></div>
+                </div>
+                <span class="form-error">{{ form.term_definition.errors }}</span>
+            </div>
+
+            <!-- Кнопки действий -->
+            <div class="form-actions">
+                <button type="submit" class="modern-btn primary">
+                    <i class="fas fa-plus-circle"></i>
+                    <span>Сохранить термин</span>
+                </button>
+                <a href=# class="modern-btn secondary">
+                    <i class="fas fa-book-open"></i>
+                    <span>К словарю</span>
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,102 @@
+{% extends 'base_page.html' %}
+
+{% block title %}Главная страница | GeneLab{% endblock %}
+
+{% block page-title %}О GeneLab{% endblock %}
+
+{% block page-content %}
+<div class="row g-5">
+    <!-- Описание проекта -->
+    <div class="col-12">
+        <p class="lead text-muted">
+            GeneLab - современная платформа для изучения генетики. Мы предоставляем научно-достоверную информацию,
+            интерактивные инструменты для обучения и последние новости из мира генетических исследований.
+        </p>
+    </div>
+
+    <!-- Основные блоки -->
+    <div class="col-md-6">
+        <a href="/genetics_dictionary" class="card-modern text-decoration-none h-100">
+            <div class="card-body p-4">
+                <div class="d-flex align-items-center gap-3">
+                    <div class="icon-wrapper bg-success p-3 rounded-3">
+                        <i class="fas fa-book-open fs-2 text-white"></i>
+                    </div>
+                    <div>
+                        <h3 class="mb-2">Генетический словарь</h3>
+                        <p class="text-muted mb-0">
+                            Изучите более 500 профессиональных терминов с подробными объяснениями
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <div class="col-md-6">
+        <a href="/dictionary/add" class="card-modern text-decoration-none h-100">
+            <div class="card-body p-4">
+                <div class="d-flex align-items-center gap-3">
+                    <div class="icon-wrapper bg-primary p-3 rounded-3">
+                        <i class="fas fa-vial fs-2 text-white"></i>
+                    </div>
+                    <div>
+                        <h3 class="mb-2">Тесты по генетике</h3>
+                        <p class="text-muted mb-0">
+                            Проверьте свои знания с помощью интерактивных тестов разных уровней сложности
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <!-- Полезные ссылки -->
+    <div class="col-12 mt-5">
+        <div class="card-modern p-4">
+            <h3 class="mb-4"><i class="fas fa-external-link-alt me-2"></i>Полезные ссылки</h3>
+
+            <div class="list-group list-group-flush">
+                <a href="https://www.ncbi.nlm.nih.gov/"
+                   class="list-group-item list-group-item-action d-flex align-items-center gap-3 py-3"
+                   target="_blank"
+                   data-bs-toggle="tooltip"
+                   data-bs-placement="right"
+                   title="NCBI содержит ряд баз данных, относящихся к биотехнологии и биомедицине, и является важным ресурсом для инструментов и услуг биоинформатики.">
+                    <i class="fas fa-database fs-4 text-success"></i>
+                    <div>
+                        <h5 class="mb-1">NCBI Resources</h5>
+                        <p class="mb-0 text-muted small">Национальный центр биотехнологической информации</p>
+                    </div>
+                </a>
+
+                <a href="https://www.genome.gov/"
+                   class="list-group-item list-group-item-action d-flex align-items-center gap-3 py-3"
+                   target="_blank"
+                   data-bs-toggle="tooltip"
+                   data-bs-placement="right"
+                   title="Официальный сайт Национального исследовательского института генома человека (NHGRI).">
+                    <i class="fas fa-university fs-4 text-primary"></i>
+                    <div>
+                        <h5 class="mb-1">NHGRI</h5>
+                        <p class="mb-0 text-muted small">Национальный институт исследования генома</p>
+                    </div>
+                </a>
+
+                <a href="https://www.ensembl.org/"
+                   class="list-group-item list-group-item-action d-flex align-items-center gap-3 py-3"
+                   target="_blank"
+                   data-bs-toggle="tooltip"
+                   data-bs-placement="right"
+                   title="База данных аннотированных геномов позвоночных и других видов.">
+                    <i class="fas fa-dna fs-4 text-danger"></i>
+                    <div>
+                        <h5 class="mb-1">Ensembl Genome</h5>
+                        <p class="mb-0 text-muted small">Платформа для анализа геномов</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

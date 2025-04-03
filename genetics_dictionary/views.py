@@ -13,5 +13,5 @@ def add_term(request):
     return render(request, "add_term.html", {"form": form})
 
 def term_list(request):
-    terms = Term.objects.all()
+    terms = Term.objects.all().order_by('term_ru')
     return render(request, "term_list.html", {"terms": terms})
