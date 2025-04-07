@@ -249,4 +249,110 @@ body {
 .text-center {
     text-align: center;
 }
+
+/* Стили для полей ввода пароля */
+#id_password1, #id_password2 {
+    position: relative;
+}
+
+/* Иконка показа пароля (если добавите JavaScript функционал) */
+.password-toggle {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: var(--accent-green);
+}
+
+/* Адаптация для мобильных */
+@media (max-width: 576px) {
+    .auth-card {
+        box-shadow: none;
+        background: transparent;
+    }
+
+    .custom-form input {
+        padding: 0.75rem 1rem;
+    }
+}
+
+/* Стили для Crispy Forms */
+.auth-card {
+    max-width: 500px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: var(--glass-bg);
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.form-control {
+    border: 2px solid rgba(126, 176, 155, 0.2);
+    border-radius: 8px;
+    padding: 0.8rem 1.2rem;
+}
+
+.form-control:focus {
+    border-color: var(--accent-green);
+    box-shadow: 0 0 0 3px rgba(126, 176, 155, 0.15);
+}
+
+.btn-primary {
+    background-color: var(--accent-green);
+    border: none;
+    width: 100%;
+    padding: 0.8rem;
+    border-radius: 8px;
+}
+
+/* Стили для формы входа */
+.auth-card {
+    max-width: 500px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: var(--glass-bg);
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.auth-form .form-control {
+    border: 2px solid rgba(126, 176, 155, 0.2);
+    border-radius: 8px;
+    padding: 0.8rem 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.auth-form .form-control:focus {
+    border-color: var(--accent-green);
+    box-shadow: 0 0 0 3px rgba(126, 176, 155, 0.15);
+}
+
+.btn-link {
+    color: var(--accent-green);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.btn-link:hover {
+    color: var(--text-primary);
+}
+
+.text-muted {
+    color: #6c757d!important;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    color: var(--text-primary);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.1);
+}
+
+.fa-user-circle {
+    font-size: 1.4rem;
+}
+
 }

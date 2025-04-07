@@ -1,0 +1,33 @@
+{% extends 'base_page.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Вход | GeneLab{% endblock %}
+
+{% block page-content %}
+<div class="container">
+    <div class="auth-card">
+        <h2 class="mb-4 text-center">
+            <i class="fas fa-sign-in-alt me-2"></i>Вход в аккаунт
+        </h2>
+
+        <p class="text-center text-muted mb-4">Пожалуйста, заполните форму для входа на сайт</p>
+
+        <form method="post" class="auth-form">
+            {% csrf_token %}
+            {{ form|crispy }}
+
+            <div class="form-actions mt-4">
+                <button type="submit" class="btn btn-primary btn-block">
+                    <i class="fas fa-sign-in-alt me-2"></i>Войти
+                </button>
+
+                <div class="text-center mt-3">
+                    <a href="{% url 'register' %}" class="btn btn-link">
+                        <i class="fas fa-user-plus me-2"></i>Создать новый аккаунт
+                    </a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

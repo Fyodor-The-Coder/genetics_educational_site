@@ -18,8 +18,10 @@ from django.contrib import admin
 from django.urls import path, include
 from genetics_site import views
 
+
 urlpatterns = [
-    path('', views.index),
+    path('', views.index, name='main_page'),
     path('admin/', admin.site.urls),
-    path('dictionary/', include('genetics_dictionary.urls'))
+    path('users/', include('users.urls')),
+    path('dictionary/', include('genetics_dictionary.urls')),
 ]

@@ -1,0 +1,31 @@
+{% extends 'base_page.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Регистрация | GeneLab{% endblock %}
+
+{% block page-content %}
+<div class="container">
+    <div class="auth-card">
+        <h2 class="mb-4 text-center">
+            <i class="fas fa-user-plus me-2"></i>Регистрация
+        </h2>
+
+        <form method="post">
+            {% csrf_token %}
+            {{ form|crispy }}
+
+            <div class="form-actions mt-4">
+                <button type="submit" class="btn btn-success btn-block">
+                    <i class="fas fa-user-check me-2"></i>Зарегистрироваться
+                </button>
+            </div>
+        </form>
+
+        <div class="text-center mt-3">
+            <a href="{% url 'login' %}" class="btn btn-link">
+                <i class="fas fa-sign-in-alt me-2"></i>Уже есть аккаунт? Войти
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}
