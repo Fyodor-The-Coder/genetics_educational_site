@@ -1,0 +1,60 @@
+{% extends 'base_page.html' %}
+
+{% block title %}Результаты квиза | Genetics Portal{% endblock %}
+
+{% block page-content %}
+<div class="results-container">
+    <div class="content-card results-card">
+        <div class="results-header mb-5">
+            <h1 class="page-title">Ваши результаты</h1>
+            <div class="results-divider"></div>
+        </div>
+
+        <div class="results-main">
+            <div class="row g-4 justify-content-center">
+                <!-- Блок с количеством правильных ответов -->
+                <div class="col-md-6">
+                    <div class="result-block correct-block">
+                        <div class="result-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="result-content">
+                            <h3 class="result-label">Правильные ответы</h3>
+                            <div class="result-value display-2 fw-bold text-success">
+                                {{ correct }}<span class="fs-3 text-muted">/{{ total }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Блок с процентом правильных ответов -->
+                <div class="col-md-6">
+                    <div class="result-block percentage-block">
+                        <div class="result-icon">
+                            <i class="fas fa-chart-pie"></i>
+                        </div>
+                        <div class="result-content">
+                            <h3 class="result-label">Процент успеха</h3>
+                            <div class="result-value display-2 fw-bold text-primary">
+                                {{ percentage }}<span class="fs-3">%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Кнопки действий -->
+            <div class="results-actions mt-5 pt-4">
+                <div class="d-grid gap-3 d-md-flex justify-content-center">
+                    <a href="{% url 'start_quiz' %}" class="btn btn-primary btn-lg px-5 py-3">
+                        <i class="fas fa-redo me-2"></i>Попробовать снова
+                    </a>
+                    <a href="/" class="btn btn-outline-secondary btn-lg px-5 py-3">
+                        <i class="fas fa-home me-2"></i>На главную
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

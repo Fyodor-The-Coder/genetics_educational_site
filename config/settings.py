@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'genetics_dictionary',
     'genetics_site',
+    'genetics_quiz',
     'users',
     'crispy_forms',
     'crispy_bootstrap5',

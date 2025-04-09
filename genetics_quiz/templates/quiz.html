@@ -1,0 +1,51 @@
+{% extends 'base_page.html' %}
+
+{% block title %}Генетический квиз | Genetics Portal{% endblock %}
+
+{% block page-title %}
+<div class="d-flex justify-content-between align-items-center">
+    <span>Вопрос {{ progress.current }} из {{ progress.total }}</span>
+    <div class="progress flex-grow-1 mx-3" style="height: 20px;">
+        <div class="progress-bar bg-success"
+             role="progressbar"
+             style="width: {{ progress.current|divisibleby:progress.total }}%"
+             aria-valuenow="{{ progress.current }}"
+             aria-valuemin="1"
+             aria-valuemax="{{ progress.total }}">
+        </div>
+    </div>
+    <div class="text-nowrap">
+        Правильно: {{ progress.correct }}
+    </div>
+</div>
+{% endblock %}
+
+{% block page-content %}
+<div class="quiz-content">
+    <div class="content-card mb-4">
+        <div class="quiz-instruction mb-3">
+            <i class="fas fa-info-circle me-2"></i>
+            Выберите правильное определение нижеуказанного термина
+        </div>
+        <h3 class="term-display mb-4">{{ term }}</h3>
+
+        <form method="post" class="definitions-vertical">
+            {% csrf_token %}
+            <div class="row g-3">
+                {% for definition in definitions %}
+                <div class="col-12">
+                    <button type="submit"
+                            name="answer"
+                            value="{{ definition.term_id }}"
+                            class="definition-card btn btn-outline-secondary w-100 h-100">
+                        <div class="definition-text">
+                            {{ definition.term_definition }}
+                        </div>
+                    </button>
+                </div>
+                {% endfor %}
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -24,4 +24,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('users/', include('users.urls')),
     path('dictionary/', include('genetics_dictionary.urls')),
+    path('quiz/', include('genetics_quiz.urls')),
 ]

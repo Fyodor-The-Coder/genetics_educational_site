@@ -1,0 +1,17 @@
+{% extends 'base_page.html' %}
+
+{% block title %}Начать тест | Genetics Portal{% endblock %}
+
+{% block page-title %}Проверь свои знания{% endblock %}
+
+{% block page-content %}
+    <div class="quiz-description">
+        <p class="mb-4">Здесь Вы можете проверить свои знания по данной дисциплине. При нажатии кнопки "Начать" Вам будут представлены 10 терминов из словаря, к каждому Вы должны будете подобрать правильную расшифровку этого значения.</p>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+            <a href="{% url 'begin_quiz' %}" class="btn btn-primary">
+                Начать
+                <i class="fas fa-chevron-right ms-2"></i>
+            </a>
+        </div>
+    </div>
+{% endblock %}
