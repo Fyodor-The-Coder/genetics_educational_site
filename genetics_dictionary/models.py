@@ -1,6 +1,8 @@
+"""В файле описывается модель Term для Django ORM"""
 from django.db import models
 
 class Term(models. Model):
+    """Класс, описывающий термин для БД"""
     term_id = models.AutoField(db_column='term_id', primary_key=True)
     term_ru = models.CharField(max_length=255)
     term_en = models.CharField(max_length=255, blank=True)

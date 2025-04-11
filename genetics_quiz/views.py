@@ -1,11 +1,14 @@
+"""""Представление стартовой страницы по генетике"""
 import random
 from django.shortcuts import render, redirect
 from genetics_dictionary.models import Term
 
 def start_quiz(request):
+    """""Функция возвращает стартовую страницу квиза по генетике"""
     return render(request, "start_quiz.html")
 
 def begin_quiz(request):
+    """""Функция отвечает за корректное отображение результатов квиза"""
     request.session['quiz'] = {
         'total': 5,
         'current': 1,
@@ -18,7 +21,6 @@ def quiz(request):
     session = request.session.get('quiz')
     if not session:
         return redirect('start_quiz')
-
     if request.method == 'POST':
         if str(request.session.get('correct_id')) == request.POST.get('answer'):
             session['correct'] += 1
@@ -46,6 +48,7 @@ def quiz(request):
     })
 
 def results(request):
+    """""Функция отвечает за корректное отображение результатов квиза"""
     quiz_data = request.session.get('quiz', {})
     correct = quiz_data.get('correct', 0)
     total = quiz_data.get('total', 5)

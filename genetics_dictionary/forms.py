@@ -1,11 +1,15 @@
+"""
+Формы для работы с пользовательским вводом терминов
+"""
+
 from django import forms
-from django.core.exceptions import ValidationError
-from .models import Term
-import re
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Field, Submit, Row, Column
+from .models import Term
+
 
 class TermForm(forms.ModelForm):
+    """"Форма для работы с терминами для словаря"""
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.helper = FormHelper()
@@ -51,16 +55,3 @@ class TermForm(forms.ModelForm):
             'term_en': 'Название термина на английском языке',
             'term_definition': 'Определение термина'
         }
-
-        def clean_term_en(self):
-            term_en = self.cleaned_data.get('term_en')
-            if term_en:
-                # Проверка на наличие кириллических символов
-                if re.search(r'[А-яЁ]', term_en):
-                    raise ValidationError("Английское название содержит кириллические символы")
-
-                # Проверка на наличие хотя бы одной латинской буквы
-                if not re.search(r'[a-zA-Z]', term_en):
-                    raise ValidationError("Должна быть хотя бы одна латинская буква")
-
-            return term_en

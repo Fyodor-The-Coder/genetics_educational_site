@@ -1,5 +1,11 @@
+"""URL-маршруты приложения 'genetics_dictionary'.
+
+Доступные пути:
+- /add/ - добавление термина
+- /list/ - список терминов - словарь
+"""
+
 from django.urls import path
-#from config.urls import urlpatterns
 from .views import add_term, term_list
 
 urlpatterns = [

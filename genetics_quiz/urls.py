@@ -1,5 +1,14 @@
+"""
+URL-маршруты приложения 'genetics_quiz'.
+
+Доступные пути:
+- /start/ - стартовая страница квиза
+- /quiz/ - страница непосредственно самого квиза
+- /results/ - страница результатов квиза
+"""
+
 from django.urls import path
-from genetics_quiz.views import *
+from genetics_quiz.views import start_quiz, begin_quiz, quiz, results
 
 urlpatterns = [
     path('start/', start_quiz, name='start_quiz'),
