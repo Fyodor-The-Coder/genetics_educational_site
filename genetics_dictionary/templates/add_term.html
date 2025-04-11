@@ -1,60 +1,80 @@
 {% extends 'base_page.html' %}
+{% load static crispy_forms_tags %}
 
-{% block title %}Добавление термина | GeneLab{% endblock %}
+{% block title %}Добавление термина{% endblock %}
 
-{% block page-title %}Добавить новый термин{% endblock %}
+{% block page-title %}
+<h1 class="page-title">Добавление нового термина в словарь</h1>
+{% endblock %}
 
 {% block page-content %}
-<div class="form-container">
-    <div class="modern-form-card">
-        <form method="post" class="neomorphic-form">
-            {% csrf_token %}
-
-            <!-- Поле для русского названия -->
-            <div class="form-group">
-                <div class="input-wrapper">
-                    <i class="icon fas fa-text-height"></i>
-                    {{ form.term_ru }}
-                    <label class="input-label">Русское название</label>
-                    <div class="underline"></div>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <!-- Сообщения -->
+            {% if messages %}
+            <div class="alert-container mb-4">
+                {% for message in messages %}
+                <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %} alert-dismissible fade show">
+                    <span class="alert-text">{{ message }}</span>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
                 </div>
-                <span class="form-error">{{ form.term_ru.errors }}</span>
+                {% endfor %}
             </div>
+            {% endif %}
 
-            <!-- Поле для английского названия -->
-            <div class="form-group">
-                <div class="input-wrapper">
-                    <i class="icon fas fa-language"></i>
-                    {{ form.term_en }}
-                    <label class="input-label">Английское название</label>
-                    <div class="underline"></div>
+            <!-- Форма -->
+            <div class="form-card glass-card">
+                <!-- Инструкция -->
+                <div class="form-intro mb-4">
+                    <p>Введите название термина на русском языке, на английском языке, а также кратко расшифруйте его</p>
                 </div>
-                <span class="form-error">{{ form.term_en.errors }}</span>
-            </div>
 
-            <!-- Поле для определения -->
-            <div class="form-group">
-                <div class="input-wrapper textarea-wrapper">
-                    <i class="icon fas fa-align-left"></i>
-                    {{ form.term_definition }}
-                    <label class="input-label">Определение термина</label>
-                    <div class="underline"></div>
+                {% crispy form %}
+
+                <!-- Примечание -->
+                <div class="form-footer-note mt-3">
+                    <p><sup>*</sup>Звёздочкой помечены поля для обязательного заполнения</p>
                 </div>
-                <span class="form-error">{{ form.term_definition.errors }}</span>
-            </div>
 
-            <!-- Кнопки действий -->
-            <div class="form-actions">
-                <button type="submit" class="modern-btn primary">
-                    <i class="fas fa-plus-circle"></i>
-                    <span>Сохранить термин</span>
-                </button>
-                <a href=# class="modern-btn secondary">
-                    <i class="fas fa-book-open"></i>
-                    <span>К словарю</span>
-                </a>
+                <!-- Кнопки -->
+                <div class="form-actions mt-4">
+                    <a href="{% url 'terms_list' %}" class="btn btn-outline-secondary btn-lg w-100">
+                        <i class="fas fa-book me-2"></i>Посмотреть словарь
+                    </a>
+                    <a href="{% url 'main_page' %}" class="btn btn-link btn-lg w-100 mt-3">
+                        <i class="fas fa-home me-2"></i>Вернуться на главную
+                    </a>
+                </div>
             </div>
-        </form>
+        </div>
     </div>
 </div>
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const enField = document.getElementById('{{ form.term_en.id_for_label }}');
+
+    if(enField) {
+        const sanitizeInput = (e) => {
+            const oldValue = e.target.value;
+            const newValue = oldValue
+                .replace(/[^a-zA-Z0-9\-_ ]/g, '')
+                .replace(/\s{2,}/g, ' ');
+
+            if(newValue !== oldValue) {
+                e.target.value = newValue;
+                e.target.dispatchEvent(new Event('input'));
+            }
+        };
+
+        enField.addEventListener('input', sanitizeInput);
+        enField.addEventListener('paste', sanitizeInput);
+        enField.addEventListener('change', sanitizeInput);
+    }
+});
+</script>
+{% endblock %}
+
 {% endblock %}

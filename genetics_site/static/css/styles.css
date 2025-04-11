@@ -668,4 +668,275 @@ body {
         width: 100%;
     }
 
+/* Кастомные стили формы */
+.form-card {
+    padding: 2.5rem;
+    border-radius: 20px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    box-shadow: var(--shadow-lg);
+}
+
+.input-wrapper {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.form-icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent-green);
+    z-index: 2;
+}
+
+.form-control {
+    width: 100%;
+    padding: 1rem 1rem 1rem 3rem;
+    border: 2px solid rgba(126, 176, 155, 0.2);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.9);
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: var(--accent-green);
+    box-shadow: 0 0 0 3px rgba(126, 176, 155, 0.15);
+}
+
+textarea.form-control {
+    min-height: 150px;
+    resize: vertical;
+    padding-top: 1.5rem;
+}
+
+.form-label {
+    position: absolute;
+    left: 3rem;
+    top: 1rem;
+    color: var(--text-secondary);
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.form-control:focus ~ .form-label,
+.form-control:not(:placeholder-shown) ~ .form-label {
+    transform: translateY(-1.5rem);
+    font-size: 0.85rem;
+    color: var(--accent-green);
+}
+
+.form-error {
+    color: #dc3545;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .form-card {
+        padding: 1.5rem;
+    }
+
+    .form-control {
+        padding-left: 2.5rem;
+    }
+
+    .form-icon {
+        left: 0.8rem;
+    }
+}
+
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid rgba(126, 176, 155, 0.1);
+}
+
+.crispy-form .form-group {
+    margin-bottom: 1.8rem;
+}
+
+.crispy-form .input-group-text {
+    background: transparent !important;
+    border: none !important;
+    color: var(--accent-green) !important;
+    padding: 0 1rem !important;
+}
+
+.crispy-form input,
+.crispy-form textarea {
+    border: 2px solid rgba(126, 176, 155, 0.2) !important;
+    border-radius: 12px !important;
+    padding: 1rem 1.5rem !important;
+    transition: all 0.3s ease !important;
+}
+
+.crispy-form input:focus,
+.crispy-form textarea:focus {
+    border-color: var(--accent-green) !important;
+    box-shadow: 0 0 0 3px rgba(126, 176, 155, 0.15) !important;
+}
+
+.crispy-form textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .glass-card {
+        padding: 1.5rem;
+    }
+
+    .crispy-form input,
+    .crispy-form textarea {
+        padding: 0.8rem 1.2rem !important;
+    }
+
+    .btn-lg {
+        font-size: 1rem;
+        padding: 0.8rem;
+    }
+}
+
+.form-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid rgba(126, 176, 155, 0.15);
+}
+
+.custom-form input,
+.custom-form textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid rgba(126, 176, 155, 0.2);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.custom-form textarea {
+    resize: none;
+    min-height: 150px;
+}
+
+.custom-form input:focus,
+.custom-form textarea:focus {
+    border-color: var(--accent-green);
+    box-shadow: 0 0 0 3px rgba(126, 176, 155, 0.15);
+}
+
+.has-error input,
+.has-error textarea {
+    border-color: #dc3545 !important;
+    background: rgba(220, 53, 69, 0.05);
+}
+
+.invalid-feedback {
+    color: #dc3545;
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+}
+
+.required-note {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    text-align: right;
+}
+
+.form-actions .btn {
+    transition: all 0.3s ease;
+}
+
+.form-actions .btn:hover {
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .form-card {
+        padding: 1.5rem;
+    }
+
+    .custom-form input,
+    .custom-form textarea {
+        padding: 0.8rem;
+    }
+}
+
+/* Единые стили для всех полей */
+.uniform-field {
+    width: 100% !important;
+    min-width: 100%;
+    max-width: 100%;
+    padding: 1rem 1.5rem !important;
+    border-radius: 12px !important;
+    border: 2px solid rgba(126, 176, 155, 0.3) !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Специфичные стили для текстового поля */
+.uniform-field.textarea {
+    min-height: 150px !important;
+    resize: vertical;
+}
+
+/* Единые стили для кнопок */
+.uniform-btn {
+    width: 100% !important;
+    padding: 1.2rem !important;
+    font-size: 1.1rem !important;
+    border-radius: 12px !important;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease !important;
+}
+
+.uniform-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(126, 176, 155, 0.3) !important;
+}
+
+/* Фикс для кнопки "Посмотреть словарь" */
+.btn-outline-secondary {
+    width: 100% !important;
+    padding: 1.2rem !important;
+    border-radius: 12px !important;
+    border: 2px solid var(--accent-green) !important;
+    color: var(--accent-green) !important;
+}
+
+.btn-outline-secondary:hover {
+    background: rgba(126, 176, 155, 0.1) !important;
+}
+
+.page-content {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--text-primary);
+}
+
+.page-content *:not(.btn):not(.fas) {
+    font-family: inherit !important;
+    font-size: inherit !important;
+    letter-spacing: 0.02em;
+}
+
+.page-content .text-muted {
+    color: var(--text-primary) !important;
+    opacity: 0.8;
+}
+
+.page-content small,
+.page-content .small {
+    font-size: 1rem !important;
+}
+
 }
