@@ -17,6 +17,20 @@ def main():
         ) from exc
     execute_from_command_line(sys.argv)
 
+def run_migrations():
+    from django.core.management import execute_from_command_line
+    execute_from_command_line(['manage.py', 'migrate', '--noinput'])
 
-if __name__ == '__main__':
-    main()
+
+if __name__ == "__main__":
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings')
+    try:
+        from django.core.management import execute_from_command_line
+    except ImportError as exc:
+        raise ImportError(...) from exc
+
+    # Автоматически выполняем миграции при запуске runserver
+    if 'runserver' in sys.argv:
+        run_migrations()
+
+    execute_from_command_line(sys.argv)
