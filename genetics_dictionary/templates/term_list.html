@@ -1,13 +1,13 @@
 {% extends 'base_page.html' %}
 
-{% block title %}Словарь терминов | GeneLab{% endblock %}
+{% block title %}Словарь терминов{% endblock %}
 
 {% block page-content %}
 <div class="container">
     <div class="d-flex justify-content-between align-items-center mb-4">
-        <h1>Генетический словарь</h1>
-        <a href=# class="btn btn-success">
-            <i class="fas fa-plus-circle me-2"></i>Добавить термин
+        <h1>Словарь терминов</h1>
+        <a href="{% url 'add_term' %}" class="btn btn-success">
+            <i class="fas fa-plus-circle me-2"></i>Добавить новый термин
         </a>
     </div>
 
@@ -15,9 +15,9 @@
         <table class="table table-hover table-striped">
             <thead class="table-dark">
                 <tr>
-                    <th scope="col">Название термина</th>
-                    <th scope="col">Английское название</th>
-                    <th scope="col">Краткое описание</th>
+                    <th scope="col">Термин</th>
+                    <th scope="col">Перевод термина на английский язык</th>
+                    <th scope="col">Краткое описание значения термина</th>
                 </tr>
             </thead>
             <tbody>
@@ -37,7 +37,7 @@
     </div>
 
     <div class="mt-4 text-center">
-        <a href=# class="btn btn-outline-secondary">
+        <a href="{% url 'main_page' %}" class="btn btn-outline-secondary">
             <i class="fas fa-arrow-left me-2"></i>Вернуться на главную
         </a>
     </div>
