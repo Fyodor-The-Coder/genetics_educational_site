@@ -49,7 +49,7 @@ class TermForm(forms.ModelForm):
         model = Term
         fields = ['term_ru', 'term_en', 'term_definition']
         labels = {
-            'term_ru': 'Название термина на русском языке',
+            'term_ru': 'Термин',
             'term_en': 'Название термина на английском языке',
             'term_definition': 'Определение термина'
         }
