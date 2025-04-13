@@ -1,6 +1,4 @@
-""""
-Представления для работы с регистрацией нового пользователя и входом на сайт
-"""
+""""Представления для работы с регистрацией нового пользователя и входом на сайт"""
 
 from django.shortcuts import render, redirect
 from django.contrib.auth import login
@@ -23,8 +21,9 @@ def user_register(request):
             user = form.save()
             login(request, user)
             return redirect('main_page')
-        else:
-            return render(request, 'register.html', {'form': form})
-    else:
-        form = UserRegisterForm()
+        # Убрали else, так как return уже завершил выполнение при валидной форме
+        return render(request, 'register.html', {'form': form})
+
+
+    form = UserRegisterForm()
     return render(request, 'register.html', {'form': form})

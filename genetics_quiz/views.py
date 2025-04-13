@@ -1,4 +1,4 @@
-"""""Представление стартовой страницы по генетике"""
+"""""Файл содержит функции, реализующие бизнес-логику мини-квиза по генетике"""
 import random
 from django.shortcuts import render, redirect
 from genetics_dictionary.models import Term
@@ -8,7 +8,7 @@ def start_quiz(request):
     return render(request, "start_quiz.html")
 
 def begin_quiz(request):
-    """""Функция отвечает за корректное отображение результатов квиза"""
+    """""Функция отвечает за корректный старт квиза"""
     request.session['quiz'] = {
         'total': 5,
         'current': 1,
@@ -18,6 +18,7 @@ def begin_quiz(request):
     return redirect('quiz')
 
 def quiz(request):
+    """Функция отвечает за корректное функционирование квиза и корректный набор баллов."""
     session = request.session.get('quiz')
     if not session:
         return redirect('start_quiz')

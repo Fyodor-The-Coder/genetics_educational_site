@@ -1,4 +1,5 @@
-"""URL-маршруты приложения 'genetics_dictionary'.
+"""
+URL-маршруты приложения 'genetics_dictionary'.
 
 Доступные пути:
 - /add/ - добавление термина

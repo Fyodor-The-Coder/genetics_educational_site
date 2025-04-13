@@ -1,6 +1,4 @@
-"""
-Формы для работы с пользовательским вводом терминов
-"""
+"""Формы для работы с пользовательским вводом терминов"""
 
 from django import forms
 from crispy_forms.helper import FormHelper
